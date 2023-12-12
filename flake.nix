@@ -26,8 +26,15 @@
       url = "github:hercules-ci/hercules-ci-effects";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-ai-stuff = {
+      url = "github:ayes-web/nix-ai-stuff";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
-  outputs = { flake-parts, invokeai-src, hercules-ci-effects, ... }@inputs:
+  outputs = { flake-parts, invokeai-src, hercules-ci-effects, nix-ai-stuff, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       perSystem = { system, ... }: {
         _module.args.pkgs = import inputs.nixpkgs { config.allowUnfree = true; inherit system; };
