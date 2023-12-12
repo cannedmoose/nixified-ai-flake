@@ -95,7 +95,7 @@ let
     sentencepiece
     tqdm
     transformers
-    #autogptq # can't build this..
+    autogptq # can't build this..
     torch
     torch-grammar
   ]);
