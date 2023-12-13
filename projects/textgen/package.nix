@@ -7,9 +7,7 @@
 , stateDir ? "$HOME/.textgen/state"
 , libdrm
 , cudaPackages
-, nix-ai-stuff
-, system
-}:
+, nix-ai-stuff}:
 let
   patchedSrc = runCommand "textgen-patchedSrc" { } ''
     cp -r --no-preserve=mode ${src} ./src

@@ -38,7 +38,7 @@ in
       src = inputs.textgen-src;
       nix-ai-stuff = inputs.nix-ai-stuff;
 
-      mkTextGenVariant = args: pkgs.callPackage ./package.nix ({ inherit src nix-ai-stuff; system = config.system; } // args);
+      mkTextGenVariant = args: pkgs.callPackage ./package.nix ({ inherit src nix-ai-stuff; system = pkgs.system; } // args);
     in
     {
       packages = {
