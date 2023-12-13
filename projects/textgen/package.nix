@@ -7,7 +7,8 @@
 , stateDir ? "$HOME/.textgen/state"
 , libdrm
 , cudaPackages
-,nix-ai-stuff
+, nix-ai-stuff
+, system
 }:
 let
   patchedSrc = runCommand "textgen-patchedSrc" { } ''
@@ -96,7 +97,7 @@ let
     sentencepiece
     tqdm
     transformers
-    nix-ai-stuff.packages.autogptq # can't build this..
+    nix-ai-stuff.packages.${system}.autogptq # can't build this..
     torch
     torch-grammar
   ]);
